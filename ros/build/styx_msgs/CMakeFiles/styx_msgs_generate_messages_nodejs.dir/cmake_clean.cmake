@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/styx_msgs_generate_messages_nodejs"
-  "/home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js"
-  "/home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js"
-  "/home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js"
-  "/home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js"
+  "/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js"
+  "/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js"
+  "/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js"
+  "/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -7,10 +7,8 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/bowen/Desktop/temp/Stanley2.0/ros/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/bowen/Desktop/temp/Stanley2.0/ros/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/bowen/Desktop/temp/Stanley2.0/ros/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD="/home/bowen/Desktop/temp/Stanley2.0/ros/build"
-export PYTHONPATH="/home/bowen/Desktop/temp/Stanley2.0/ros/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/bowen/Desktop/temp/Stanley2.0/ros/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/src:/home/bowen/Desktop/temp/Stanley2.0/ros/src:$ROS_PACKAGE_PATH"
+export LD_LIBRARY_PATH="/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu"
+export PKG_CONFIG_PATH="/opt/ros/kinetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig"
+export PWD="/home/student/Desktop/Stanley2.0/ros/build"
+export PYTHONPATH="/opt/ros/kinetic/lib/python2.7/dist-packages"
+export ROS_PACKAGE_PATH="/home/student/Desktop/Stanley2.0/ros/src:/opt/ros/kinetic/share"
