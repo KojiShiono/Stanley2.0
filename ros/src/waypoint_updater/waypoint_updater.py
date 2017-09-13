@@ -33,54 +33,30 @@ class WaypointUpdater(object):
         rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
 
         # TODO: Add a subscriber for /traffic_waypoint and /obstacle_waypoint below
-        self.map = False
-        self.pose_ = None
         self.waypoints = None
-        self.lane = Lane()
 
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
 
         # TODO: Add other member variables you need below
 
+
         rospy.spin()
 
     def pose_cb(self, msg):
         # TODO: Implement
-        if self.waypoints is None:
-            pass
-        else:
-            # rospy.logwarn(self.waypoints.waypoints[0])
-            self.pose = msg.pose
-            # waypoints = self.waypoints.waypoints
-            if not self.map:
-                self.map_points = [point.pose.pose.position for point in self.waypoints.waypoints]
-                self.n_map_points = len(self.map_points)
-                self.dists = [self.distance(self.pose.position, point) for point in self.map_points]
-                self.current_waypoint_index = np.argmin(np.array(self.dists))
-                self.map = True
-            else:
-                last_dist = self.distance(self.pose.position, self.map_points[self.current_waypoint_index])
-                min_dist_found = False
-                while not min_dist_found:
-                    self.current_waypoint_index += 1
-                    dist = self.distance(self.pose.position, self.map_points[self.current_waypoint_index])
-                    if dist < last_dist:
-                        last_dist = dist 
-                    else:
-                        self.current_waypoint_index -= 1
-                        min_dist_found = True
-            self.current_waypoint_index %= self.n_map_points
-            loop = self.waypoints.waypoints + self.waypoints.waypoints[:LOOKAHEAD_WPS]
-            self.lane.waypoints = loop[self.current_waypoint_index-LOOKBACK_WPS : self.current_waypoint_index + LOOKAHEAD_WPS]
-                                
+        self.pose = msg
 
-            self.final_waypoints_pub.publish(self.lane)
-        
+        if self.waypoints is not None:
+            lane = Lane()
+            lane.header.frame_id = self.pose.header.frame_id
+            lane.header.stamp = rospy.Time(0)
+            lane.waypoints = self.waypoints[:LOOKAHEAD_WPS]
+            self.final_waypoints_pub.publish(lane)
 
-    def waypoints_cb(self, Lane):
+
+    def waypoints_cb(self, msg):
         # TODO: Implement
-        self.waypoints = Lane
-        pass
+        self.waypoints = msg.waypoints
 
     def traffic_cb(self, msg):
         # TODO: Callback for /traffic_waypoint message. Implement
