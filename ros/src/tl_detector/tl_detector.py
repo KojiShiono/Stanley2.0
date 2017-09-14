@@ -11,6 +11,9 @@ import tf
 import cv2
 from traffic_light_config import config
 
+from scipy.misc import imsave
+import numpy as np
+
 STATE_COUNT_THRESHOLD = 3
 
 class TLDetector(object):
