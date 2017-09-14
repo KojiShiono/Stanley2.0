@@ -1,8 +1,8 @@
-prefix=/home/student/Desktop/Stanley2.0/ros/devel
+prefix=/home/bowen/Desktop/Stanley2.0/ros/devel
 
 Name: waypoint_updater
 Description: Description of waypoint_updater
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/student/Desktop/Stanley2.0/ros/devel/lib 
+Libs: -L/home/bowen/Desktop/Stanley2.0/ros/devel/lib 
 Requires: 

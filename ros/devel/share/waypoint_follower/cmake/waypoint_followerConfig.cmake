@@ -67,14 +67,14 @@ set(waypoint_follower_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(waypoint_follower_SOURCE_PREFIX /home/student/Desktop/Stanley2.0/ros/src/waypoint_follower)
-  set(waypoint_follower_DEVEL_PREFIX /home/student/Desktop/Stanley2.0/ros/devel)
+  set(waypoint_follower_SOURCE_PREFIX /home/bowen/Desktop/Stanley2.0/ros/src/waypoint_follower)
+  set(waypoint_follower_DEVEL_PREFIX /home/bowen/Desktop/Stanley2.0/ros/devel)
   set(waypoint_follower_INSTALL_PREFIX "")
   set(waypoint_follower_PREFIX ${waypoint_follower_DEVEL_PREFIX})
 else()
   set(waypoint_follower_SOURCE_PREFIX "")
   set(waypoint_follower_DEVEL_PREFIX "")
-  set(waypoint_follower_INSTALL_PREFIX /home/student/Desktop/Stanley2.0/ros/install)
+  set(waypoint_follower_INSTALL_PREFIX /home/bowen/Desktop/Stanley2.0/ros/install)
   set(waypoint_follower_PREFIX ${waypoint_follower_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(waypoint_follower_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/student/Desktop/Stanley2.0/ros/src/waypoint_follower/include " STREQUAL " ")
+if(NOT "/home/bowen/Desktop/Stanley2.0/ros/src/waypoint_follower/include " STREQUAL " ")
   set(waypoint_follower_INCLUDE_DIRS "")
-  set(_include_dirs "/home/student/Desktop/Stanley2.0/ros/src/waypoint_follower/include")
+  set(_include_dirs "/home/bowen/Desktop/Stanley2.0/ros/src/waypoint_follower/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/student/Desktop/Stanley2.0/ros/src/waypoint_follower/include " STR
         message(FATAL_ERROR "Project 'waypoint_follower' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'yousuf <yousuf@todo.todo>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'waypoint_follower' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/student/Desktop/Stanley2.0/ros/src/waypoint_follower/${idir}'.  Ask the maintainer 'yousuf <yousuf@todo.todo>' to fix it.")
+      message(FATAL_ERROR "Project 'waypoint_follower' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/bowen/Desktop/Stanley2.0/ros/src/waypoint_follower/${idir}'.  Ask the maintainer 'yousuf <yousuf@todo.todo>' to fix it.")
     endif()
     _list_append_unique(waypoint_follower_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/student/Desktop/Stanley2.0/ros/devel/lib;/home/student/Desktop/Stanley2.0/ros/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/bowen/Desktop/Stanley2.0/ros/devel/lib;/home/bowen/Desktop/Stanley2.0/ros/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

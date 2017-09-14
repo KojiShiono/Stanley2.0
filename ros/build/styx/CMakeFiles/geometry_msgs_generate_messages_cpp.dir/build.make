@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/Desktop/Stanley2.0/ros/src
+CMAKE_SOURCE_DIR = /home/bowen/Desktop/Stanley2.0/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/Desktop/Stanley2.0/ros/build
+CMAKE_BINARY_DIR = /home/bowen/Desktop/Stanley2.0/ros/build
 
 # Utility rule file for geometry_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ styx/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build: geometry_msgs_gen
 .PHONY : styx/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 
 styx/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
-	cd /home/student/Desktop/Stanley2.0/ros/build/styx && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/bowen/Desktop/Stanley2.0/ros/build/styx && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : styx/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 
 styx/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend:
-	cd /home/student/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Desktop/Stanley2.0/ros/src /home/student/Desktop/Stanley2.0/ros/src/styx /home/student/Desktop/Stanley2.0/ros/build /home/student/Desktop/Stanley2.0/ros/build/styx /home/student/Desktop/Stanley2.0/ros/build/styx/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bowen/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bowen/Desktop/Stanley2.0/ros/src /home/bowen/Desktop/Stanley2.0/ros/src/styx /home/bowen/Desktop/Stanley2.0/ros/build /home/bowen/Desktop/Stanley2.0/ros/build/styx /home/bowen/Desktop/Stanley2.0/ros/build/styx/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : styx/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
 

@@ -43,75 +43,75 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/Desktop/Stanley2.0/ros/src
+CMAKE_SOURCE_DIR = /home/bowen/Desktop/Stanley2.0/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/Desktop/Stanley2.0/ros/build
+CMAKE_BINARY_DIR = /home/bowen/Desktop/Stanley2.0/ros/build
 
 # Utility rule file for styx_msgs_generate_messages_nodejs.
 
 # Include the progress variables for this target.
 include styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/progress.make
 
-styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs: /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js
-styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs: /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js
-styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs: /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js
-styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs: /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js
+styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs: /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js
+styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs: /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js
+styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs: /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js
+styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs: /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js
 
 
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Lane.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/PoseStamped.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Twist.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Waypoint.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Quaternion.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/TwistStamped.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Vector3.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Pose.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Stanley2.0/ros/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from styx_msgs/Lane.msg"
-	cd /home/student/Desktop/Stanley2.0/ros/build/styx_msgs && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Lane.msg -Istyx_msgs:/home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p styx_msgs -o /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLight.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/geometry_msgs/msg/Quaternion.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/geometry_msgs/msg/Pose.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bowen/Desktop/Stanley2.0/ros/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from styx_msgs/TrafficLight.msg"
+	cd /home/bowen/Desktop/Stanley2.0/ros/build/styx_msgs && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLight.msg -Istyx_msgs:/home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p styx_msgs -o /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg
 
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLightArray.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/geometry_msgs/msg/PoseStamped.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/geometry_msgs/msg/Quaternion.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/geometry_msgs/msg/Pose.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLight.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Stanley2.0/ros/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from styx_msgs/TrafficLightArray.msg"
-	cd /home/student/Desktop/Stanley2.0/ros/build/styx_msgs && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLightArray.msg -Istyx_msgs:/home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p styx_msgs -o /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLightArray.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/geometry_msgs/msg/Quaternion.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLight.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js: /opt/ros/kinetic/share/geometry_msgs/msg/Pose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bowen/Desktop/Stanley2.0/ros/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from styx_msgs/TrafficLightArray.msg"
+	cd /home/bowen/Desktop/Stanley2.0/ros/build/styx_msgs && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLightArray.msg -Istyx_msgs:/home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p styx_msgs -o /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg
 
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Waypoint.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/PoseStamped.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Twist.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Quaternion.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/TwistStamped.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Vector3.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Pose.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Stanley2.0/ros/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from styx_msgs/Waypoint.msg"
-	cd /home/student/Desktop/Stanley2.0/ros/build/styx_msgs && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Waypoint.msg -Istyx_msgs:/home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p styx_msgs -o /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Waypoint.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Twist.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Quaternion.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/TwistStamped.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Vector3.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js: /opt/ros/kinetic/share/geometry_msgs/msg/Pose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bowen/Desktop/Stanley2.0/ros/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from styx_msgs/Waypoint.msg"
+	cd /home/bowen/Desktop/Stanley2.0/ros/build/styx_msgs && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Waypoint.msg -Istyx_msgs:/home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p styx_msgs -o /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg
 
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLight.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/geometry_msgs/msg/Quaternion.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/geometry_msgs/msg/PoseStamped.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/geometry_msgs/msg/Pose.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-/home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Stanley2.0/ros/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from styx_msgs/TrafficLight.msg"
-	cd /home/student/Desktop/Stanley2.0/ros/build/styx_msgs && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg/TrafficLight.msg -Istyx_msgs:/home/student/Desktop/Stanley2.0/ros/src/styx_msgs/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p styx_msgs -o /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Lane.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Twist.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Quaternion.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/TwistStamped.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Vector3.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Waypoint.msg
+/home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js: /opt/ros/kinetic/share/geometry_msgs/msg/Pose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bowen/Desktop/Stanley2.0/ros/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from styx_msgs/Lane.msg"
+	cd /home/bowen/Desktop/Stanley2.0/ros/build/styx_msgs && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg/Lane.msg -Istyx_msgs:/home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p styx_msgs -o /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg
 
 styx_msgs_generate_messages_nodejs: styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs
-styx_msgs_generate_messages_nodejs: /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js
-styx_msgs_generate_messages_nodejs: /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js
-styx_msgs_generate_messages_nodejs: /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js
-styx_msgs_generate_messages_nodejs: /home/student/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js
+styx_msgs_generate_messages_nodejs: /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLight.js
+styx_msgs_generate_messages_nodejs: /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/TrafficLightArray.js
+styx_msgs_generate_messages_nodejs: /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Waypoint.js
+styx_msgs_generate_messages_nodejs: /home/bowen/Desktop/Stanley2.0/ros/devel/share/gennodejs/ros/styx_msgs/msg/Lane.js
 styx_msgs_generate_messages_nodejs: styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/build.make
 
 .PHONY : styx_msgs_generate_messages_nodejs
@@ -122,10 +122,10 @@ styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/build: styx_msgs_gen
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/build
 
 styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/student/Desktop/Stanley2.0/ros/build/styx_msgs && $(CMAKE_COMMAND) -P CMakeFiles/styx_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/bowen/Desktop/Stanley2.0/ros/build/styx_msgs && $(CMAKE_COMMAND) -P CMakeFiles/styx_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/clean
 
 styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/student/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Desktop/Stanley2.0/ros/src /home/student/Desktop/Stanley2.0/ros/src/styx_msgs /home/student/Desktop/Stanley2.0/ros/build /home/student/Desktop/Stanley2.0/ros/build/styx_msgs /home/student/Desktop/Stanley2.0/ros/build/styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bowen/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bowen/Desktop/Stanley2.0/ros/src /home/bowen/Desktop/Stanley2.0/ros/src/styx_msgs /home/bowen/Desktop/Stanley2.0/ros/build /home/bowen/Desktop/Stanley2.0/ros/build/styx_msgs /home/bowen/Desktop/Stanley2.0/ros/build/styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_generate_messages_nodejs.dir/depend
 

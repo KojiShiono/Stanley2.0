@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/Desktop/Stanley2.0/ros/src
+CMAKE_SOURCE_DIR = /home/bowen/Desktop/Stanley2.0/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/Desktop/Stanley2.0/ros/build
+CMAKE_BINARY_DIR = /home/bowen/Desktop/Stanley2.0/ros/build
 
 # Utility rule file for tf2_msgs_generate_messages_eus.
 
@@ -63,10 +63,10 @@ waypoint_follower/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build: tf2_msgs_
 .PHONY : waypoint_follower/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
 
 waypoint_follower/CMakeFiles/tf2_msgs_generate_messages_eus.dir/clean:
-	cd /home/student/Desktop/Stanley2.0/ros/build/waypoint_follower && $(CMAKE_COMMAND) -P CMakeFiles/tf2_msgs_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/bowen/Desktop/Stanley2.0/ros/build/waypoint_follower && $(CMAKE_COMMAND) -P CMakeFiles/tf2_msgs_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : waypoint_follower/CMakeFiles/tf2_msgs_generate_messages_eus.dir/clean
 
 waypoint_follower/CMakeFiles/tf2_msgs_generate_messages_eus.dir/depend:
-	cd /home/student/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Desktop/Stanley2.0/ros/src /home/student/Desktop/Stanley2.0/ros/src/waypoint_follower /home/student/Desktop/Stanley2.0/ros/build /home/student/Desktop/Stanley2.0/ros/build/waypoint_follower /home/student/Desktop/Stanley2.0/ros/build/waypoint_follower/CMakeFiles/tf2_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bowen/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bowen/Desktop/Stanley2.0/ros/src /home/bowen/Desktop/Stanley2.0/ros/src/waypoint_follower /home/bowen/Desktop/Stanley2.0/ros/build /home/bowen/Desktop/Stanley2.0/ros/build/waypoint_follower /home/bowen/Desktop/Stanley2.0/ros/build/waypoint_follower/CMakeFiles/tf2_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : waypoint_follower/CMakeFiles/tf2_msgs_generate_messages_eus.dir/depend
 
