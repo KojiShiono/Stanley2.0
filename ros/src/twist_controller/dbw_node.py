@@ -11,6 +11,8 @@ import tf
 from scipy.interpolate import UnivariateSpline, CubicSpline
 from pid import PID 
 
+from styx_msgs.msg import TrafficLightArray, TrafficLight
+
 '''
 You can build this node only after you have built (or partially built) the `waypoint_updater` node.
 
@@ -63,7 +65,7 @@ class DBWNode(object):
         
 
         self.current_velocity = 0.
-        self.velocity_ref = 15.6464
+        self.velocity_ref = 10.47
         self.velocity_target = 0.
         self.cruise_control = 0.
         self.accel_limit = accel_limit
@@ -83,15 +85,20 @@ class DBWNode(object):
         self.time_previous = 0
         self.time_delta = 0
 
-        self.velocity_pid = PID(kp=0.2, ki=0.0, kd=0.05, mn=-1, mx = 1.)
+        self.lights = None
+        self.red_light_dist = 9999.
 
-        self.steering_pid = PID(kp=0.05, ki=0., kd=0.05, mn=-max_steer_angle, mx=max_steer_angle)
+        self.velocity_pid = PID(kp=0.2, ki=0.0, kd=0.01, mn=-1, mx = 1.)
+
+        self.steering_pid = PID(kp=0.05, ki=0., kd=0.03, mn=-max_steer_angle, mx=max_steer_angle)
 
         # TODO: Subscribe to all the topics you need to
         rospy.Subscriber('/vehicle/dbw_enabled', Bool, self.dbw_cb)
         rospy.Subscriber('/current_velocity', TwistStamped, self.current_vel_cb, queue_size=1)
         rospy.Subscriber('/current_pose', PoseStamped, self.current_pose_cb, queue_size=1)
         rospy.Subscriber('/final_waypoints', Lane, self.final_waypoints_cb)
+        # subscribe to simulator traffic light states 
+        rospy.Subscriber('/vehicle/traffic_lights', TrafficLightArray, self.traffic_cb)
 
 
         self.loop()
@@ -101,7 +108,7 @@ class DBWNode(object):
     def loop(self):
         
 
-        rate = rospy.Rate(50) # 50Hz
+        rate = rospy.Rate(20) # 50Hz
         while not rospy.is_shutdown():
             # TODO: Get predicted throttle, brake, and steering using `twist_controller`
             # You should only publish the control commands if dbw is enabled
@@ -127,12 +134,25 @@ class DBWNode(object):
                     # get cross track error
                     self.cte = self.cross_track_error(self.final_waypoints, self.current_pose)
                     self.steering = self.steering_pid.step(self.cte, self.time_delta)
-                    # set target velocity                    
-                    if self.current_velocity < self.velocity_ref:
-                        # self.velocity_target = max(1 ,max(self.past_velocity) + self.accel_limit * self.time_delta)
-                        self.velocity_target = self.velocity_ref
+                    # check red light                   
+                    if self.lights is not None and self.current_pose is not None:
+                        dists = [self.sign_distance(light.pose.pose.position, self.current_pose.position) for light in self.lights]
+                        states = [light.state for light in self.lights]
+                        rospy.logwarn(dists)
+                        rospy.logwarn(states)
+                        if states[np.argmin(np.array(dists))] == 0:
+                            self.red_light_dist = min(dists)
+                        else:
+                            self.red_light_dist = 9999.
+                    # set target velocity
+                    if self.red_light_dist<35 and self.red_light_dist>10:
+                        self.velocity_target = 0
                     else:
-                        self.velocity_target = min(self.velocity_ref, self.current_velocity + self.decel_limit * self.time_delta) 
+                        if self.current_velocity < self.velocity_ref:
+                            # self.velocity_target = max(1 ,max(self.past_velocity) + self.accel_limit * self.time_delta)
+                            self.velocity_target = self.velocity_ref
+                        else:
+                            self.velocity_target = min(self.velocity_ref, self.current_velocity + self.decel_limit * self.time_delta) 
                     self.cruise_control = self.velocity_pid.step(self.velocity_target-self.current_velocity, self.time_delta)
                 
                 if self.cruise_control>0:         
@@ -149,7 +169,7 @@ class DBWNode(object):
 
             # logstr = str(self.velocity_target-self.current_velocity) + " ,S: " + str(self.steering) + " ,T: " + str(self.throttle) + " ,B: " + str(self.brake)
             # rospy.logwarn(logstr)
-
+            
             self.publish(self.throttle, self.brake, self.steering)
             rate.sleep()
 
@@ -213,6 +233,15 @@ class DBWNode(object):
 
     def final_waypoints_cb(self, msg):
         self.final_waypoints = msg.waypoints 
+
+    def traffic_cb(self, msg):
+        self.lights = msg.lights
+        
+    def sign_distance(self, point1, point2):
+        dx = point1.x - point2.x
+        dy = point1.y - point2.y
+        d = math.sqrt(dx*dx+dy*dy)
+        return d if dx > 0 else 99999.
 
 if __name__ == '__main__':
     DBWNode()

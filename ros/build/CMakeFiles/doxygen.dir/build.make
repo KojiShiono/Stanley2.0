@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bowen/Desktop/Stanley2.0/ros/src
+CMAKE_SOURCE_DIR = /home/student/Desktop/Stanley2.0/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bowen/Desktop/Stanley2.0/ros/build
+CMAKE_BINARY_DIR = /home/student/Desktop/Stanley2.0/ros/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/bowen/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bowen/Desktop/Stanley2.0/ros/src /home/bowen/Desktop/Stanley2.0/ros/src /home/bowen/Desktop/Stanley2.0/ros/build /home/bowen/Desktop/Stanley2.0/ros/build /home/bowen/Desktop/Stanley2.0/ros/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Desktop/Stanley2.0/ros/src /home/student/Desktop/Stanley2.0/ros/src /home/student/Desktop/Stanley2.0/ros/build /home/student/Desktop/Stanley2.0/ros/build /home/student/Desktop/Stanley2.0/ros/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

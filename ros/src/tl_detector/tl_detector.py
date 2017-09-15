@@ -50,12 +50,14 @@ class TLDetector(object):
 
     def pose_cb(self, msg):
         self.pose = msg
+        
 
     def waypoints_cb(self, waypoints):
         self.waypoints = waypoints
 
     def traffic_cb(self, msg):
         self.lights = msg.lights
+                
 
     def image_cb(self, msg):
         """Identifies red lights in the incoming camera image and publishes the index
