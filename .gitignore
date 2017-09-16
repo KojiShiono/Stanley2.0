@@ -3,3 +3,7 @@
 traffic_light_bag_files/just_traffic_light
 traffic_light_bag_files/loop_with_traffic_light
 **/*.mp4
+**/loop_with_traffic_light.zip
+**/model.h5
+**/model.json
+**/*.pyc
