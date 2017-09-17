@@ -9,3 +9,4 @@ traffic_ligth_bag_files/simulator_images
 **/model.json
 **/*.pyc
 *.jpeg
+traffic_light_bag_files/simulator_images/lights.csv
