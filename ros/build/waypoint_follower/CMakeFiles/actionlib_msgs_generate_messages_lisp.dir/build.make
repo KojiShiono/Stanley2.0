@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/src
+CMAKE_SOURCE_DIR = /home/student/Desktop/Stanley2.0/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build
+CMAKE_BINARY_DIR = /home/student/Desktop/Stanley2.0/ros/build
 
 # Utility rule file for actionlib_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ waypoint_follower/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build: ac
 .PHONY : waypoint_follower/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 
 waypoint_follower/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean:
-	cd /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build/waypoint_follower && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/student/Desktop/Stanley2.0/ros/build/waypoint_follower && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : waypoint_follower/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
 
 waypoint_follower/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/depend:
-	cd /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/src /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/src/waypoint_follower /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build/waypoint_follower /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build/waypoint_follower/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Desktop/Stanley2.0/ros/src /home/student/Desktop/Stanley2.0/ros/src/waypoint_follower /home/student/Desktop/Stanley2.0/ros/build /home/student/Desktop/Stanley2.0/ros/build/waypoint_follower /home/student/Desktop/Stanley2.0/ros/build/waypoint_follower/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : waypoint_follower/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/depend
 

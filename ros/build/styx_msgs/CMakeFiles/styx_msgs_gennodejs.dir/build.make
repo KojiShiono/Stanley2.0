@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/src
+CMAKE_SOURCE_DIR = /home/student/Desktop/Stanley2.0/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build
+CMAKE_BINARY_DIR = /home/student/Desktop/Stanley2.0/ros/build
 
 # Utility rule file for styx_msgs_gennodejs.
 
@@ -63,10 +63,10 @@ styx_msgs/CMakeFiles/styx_msgs_gennodejs.dir/build: styx_msgs_gennodejs
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_gennodejs.dir/build
 
 styx_msgs/CMakeFiles/styx_msgs_gennodejs.dir/clean:
-	cd /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build/styx_msgs && $(CMAKE_COMMAND) -P CMakeFiles/styx_msgs_gennodejs.dir/cmake_clean.cmake
+	cd /home/student/Desktop/Stanley2.0/ros/build/styx_msgs && $(CMAKE_COMMAND) -P CMakeFiles/styx_msgs_gennodejs.dir/cmake_clean.cmake
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_gennodejs.dir/clean
 
 styx_msgs/CMakeFiles/styx_msgs_gennodejs.dir/depend:
-	cd /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/src /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/src/styx_msgs /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build/styx_msgs /home/bowen/Desktop/temp/CarND-final/CarND-Capstone/ros/build/styx_msgs/CMakeFiles/styx_msgs_gennodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/Desktop/Stanley2.0/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Desktop/Stanley2.0/ros/src /home/student/Desktop/Stanley2.0/ros/src/styx_msgs /home/student/Desktop/Stanley2.0/ros/build /home/student/Desktop/Stanley2.0/ros/build/styx_msgs /home/student/Desktop/Stanley2.0/ros/build/styx_msgs/CMakeFiles/styx_msgs_gennodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_gennodejs.dir/depend
 
