@@ -87,6 +87,8 @@ class DBWNode(object):
 
         self.lights = None
         self.red_light_dist = 9999.
+        self.red_stop_dist_max = 30 # distance from the red traffic light that the vehicle should stop
+        self.red_stop_dist_min = 25 # distance from the red traffic light that the vehicle should keep going
 
         self.velocity_pid = PID(kp=0.2, ki=0.0, kd=0.01, mn=-1, mx = 1.)
 
@@ -138,14 +140,16 @@ class DBWNode(object):
                     if self.lights is not None and self.current_pose is not None:
                         dists = [self.sign_distance(light.pose.pose.position, self.current_pose.position) for light in self.lights]
                         states = [light.state for light in self.lights]
-                        rospy.logwarn(dists)
-                        rospy.logwarn(states)
+                        # rospy.logwarn(dists)
+                        # rospy.logwarn(states)
                         if states[np.argmin(np.array(dists))] == 0:
                             self.red_light_dist = min(dists)
                         else:
                             self.red_light_dist = 9999.
                     # set target velocity
-                    if self.red_light_dist<35 and self.red_light_dist>10:
+                    # project current distance to stop with full brake
+                    project_stop_dist = ((self.current_velocity+0)/2)*(self.current_velocity/abs(self.decel_limit))
+                    if project_stop_dist>=(self.red_light_dist-self.red_stop_dist_max) and self.red_light_dist>self.red_stop_dist_min:
                         self.velocity_target = 0
                     else:
                         if self.current_velocity < self.velocity_ref:
@@ -216,7 +220,7 @@ class DBWNode(object):
         # spl = CubicSpline(ptsXV, ptsYV)
         cte = 0
         for t in range(3):
-            cte += spl(np.mean(np.array(self.past_velocity))*0.44704*t*self.time_delta)
+            cte += spl(np.mean(np.array(self.past_velocity))*t*self.time_delta)
         return cte
 
     def dbw_cb(self, msg):
