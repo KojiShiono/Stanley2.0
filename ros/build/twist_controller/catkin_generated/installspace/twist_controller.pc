@@ -1,8 +1,0 @@
-prefix=/home/bowen/Desktop/temp/Stanley2.0/ros/install
-
-Name: twist_controller
-Description: Description of twist_controller
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/bowen/Desktop/temp/Stanley2.0/ros/install/lib 
-Requires: 

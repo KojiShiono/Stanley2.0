@@ -171,6 +171,15 @@ class TLDetector(object):
             int: ID of traffic light color (specified in styx_msgs/TrafficLight)
 
         """
+        # image_name = 'images/{:08}.jpeg'.format(self.frame_count)
+        cv2_img = self.bridge.imgmsg_to_cv2(msg, "passthrough")
+        img = cv2.cvtColor(cv2_img, cv2.COLOR_BayerGR2RGB)
+        img_th = (img[:,:,0] > 240)
+        if np.sum(img_th!=0) >300:
+            state = TrafficLight.RED
+
+        # cv2.imwrite('/var/tmp/' + image_name, cv2_img)
+
         light = None
         light_positions = config.light_positions
         if(self.pose):
