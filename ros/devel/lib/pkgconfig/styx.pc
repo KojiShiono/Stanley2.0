@@ -1,8 +1,8 @@
-prefix=/home/bowen/Desktop/temp/Stanley2.0/ros/devel
+prefix=/home/ale/Stanley2.0/ros/devel
 
 Name: styx
 Description: Description of styx
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/bowen/Desktop/temp/Stanley2.0/ros/devel/lib 
+Libs: -L/home/ale/Stanley2.0/ros/devel/lib 
 Requires: 

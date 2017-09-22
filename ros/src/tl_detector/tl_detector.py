@@ -10,6 +10,7 @@ from light_classification.tl_classifier import TLClassifier
 import tf
 import cv2
 from traffic_light_config import config
+import numpy as np
 
 STATE_COUNT_THRESHOLD = 3
 
@@ -171,24 +172,33 @@ class TLDetector(object):
             int: ID of traffic light color (specified in styx_msgs/TrafficLight)
 
         """
-        # image_name = 'images/{:08}.jpeg'.format(self.frame_count)
-        cv2_img = self.bridge.imgmsg_to_cv2(msg, "passthrough")
-        img = cv2.cvtColor(cv2_img, cv2.COLOR_BayerGR2RGB)
-        img_th = (img[:,:,0] > 240)
-        if np.sum(img_th!=0) >300:
-            state = TrafficLight.RED
-
-        # cv2.imwrite('/var/tmp/' + image_name, cv2_img)
-
         light = None
         light_positions = config.light_positions
         if(self.pose):
             car_position = self.get_closest_waypoint(self.pose.pose)
 
         #TODO find the closest visible traffic light (if one exists)
+        cv2_img = self.bridge.imgmsg_to_cv2(self.camera_image, "passthrough")
+        img_th0 = (cv2_img[:,:,0] > 240)
+        img_th1 = (cv2_img[:,:,1] > 240)
+
+        pixels_r = np.sum(img_th0)
+        pixels_g = np.sum(img_th1)
+
+        if pixels_r > 500 and pixels_g < 500:
+            print "RED"
+            light = True
+            state = TrafficLight.RED
+        elif pixels_r < 500 and pixels_g > 500:
+            print "GREEN"
+            light = True
+            state = TrafficLight.GREEN
+        else:
+            print "UNKNOWN"
 
         if light:
-            state = self.get_light_state(light)
+            # state = self.get_light_state(light)
+            light_wp = -1
             return light_wp, state
         self.waypoints = None
         return -1, TrafficLight.UNKNOWN
