@@ -28,3 +28,7 @@ Note, the _loop_ dataset does not contain any image with the yellow light.
 Pixels count from [video](https://youtu.be/HsMtd3U8Cb0).
 
 ![img](traffic_light_bag_files/count_pixels.png)
+
+I'd say that the distance between two waypoints is around 1m.
+
+![img](traffic_light_bag_files/wpnt_distance.png)
