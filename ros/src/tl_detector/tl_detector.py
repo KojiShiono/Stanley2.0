@@ -99,7 +99,25 @@ class TLDetector(object):
 
         """
         #TODO implement
-        return 0
+        p = (pose.position.x, pose.position.y, pose.position.z)
+
+        min_dist = 1e5
+        closest_wpnt = -1
+
+        for i in range(len(self.waypoints.waypoints)):
+            w = self.waypoints.waypoints[i].pose.pose.position
+            q = (w.x, w.y, w.z)
+            if self.distance(p, q) < min_dist:
+                min_dist = self.distance(p, q)
+                closest_wpnt = i
+
+        return closest_wpnt
+        # return 0
+
+    def distance(self, p, q):
+        return np.sqrt((p[0]-q[0])**2+(p[1]-q[1])**2+(p[2]-q[2])**2)
+
+
 
 
     def project_to_image_plane(self, point_in_world):
@@ -175,32 +193,37 @@ class TLDetector(object):
         light = None
         light_positions = config.light_positions
         if(self.pose):
-            car_position = self.get_closest_waypoint(self.pose.pose)
+            light_wp = self.get_closest_waypoint(self.pose.pose)
+
 
         #TODO find the closest visible traffic light (if one exists)
         cv2_img = self.bridge.imgmsg_to_cv2(self.camera_image, "passthrough")
         img_th0 = (cv2_img[:,:,0] > 240)
         img_th1 = (cv2_img[:,:,1] > 240)
 
+        pixels_r = 0
+        pixels_g = 0
+
         pixels_r = np.sum(img_th0)
         pixels_g = np.sum(img_th1)
 
         if pixels_r > 500 and pixels_g < 500:
-            print "RED"
+            # print "RED"
             light = True
             state = TrafficLight.RED
         elif pixels_r < 500 and pixels_g > 500:
-            print "GREEN"
+            # print "GREEN"
             light = True
             state = TrafficLight.GREEN
         else:
-            print "UNKNOWN"
+            light = None
+            # print "UNKNOWN"
 
         if light:
             # state = self.get_light_state(light)
-            light_wp = -1
+            print light_wp, pixels_g, pixels_r, state
             return light_wp, state
-        self.waypoints = None
+        # self.waypoints = None
         return -1, TrafficLight.UNKNOWN
 
 if __name__ == '__main__':
