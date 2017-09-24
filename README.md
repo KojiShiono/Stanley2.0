@@ -21,3 +21,10 @@ The majority of the images does not have the traffic light in sight.
 __TODO__: Augment training data to have a uniform distribution over the four classes.
 
 Note, the _loop_ dataset does not contain any image with the yellow light.
+
+
+### Pixels count vs waypoint index
+
+Pixels count from [video](https://youtu.be/HsMtd3U8Cb0).
+
+![img](traffic_light_bag_files/count_pixels.png)
