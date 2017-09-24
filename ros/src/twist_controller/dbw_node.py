@@ -65,7 +65,7 @@ class DBWNode(object):
         
 
         self.current_velocity = 0.
-        self.velocity_ref = 13.47
+        self.velocity_ref = 10.47
         self.velocity_target = 0.
         self.cruise_control = 0.
         self.accel_limit = accel_limit
@@ -87,13 +87,13 @@ class DBWNode(object):
 
         self.lights = None
         self.red_light_dist = 9999.
-        self.red_stop_dist_max = 30 # distance from the red traffic light that the vehicle should stop
+        self.red_stop_dist_max = 35 # distance from the red traffic light that the vehicle should stop
         self.red_stop_dist_min = 25 # distance from the red traffic light that the vehicle should keep going
         self.light_state = None
 
         self.velocity_pid = PID(kp=0.2, ki=0.0, kd=0.01, mn=-1, mx = 1.)
 
-        self.steering_pid = PID(kp=0.055, ki=0., kd=0.045, mn=-max_steer_angle, mx=max_steer_angle)
+        self.steering_pid = PID(kp=0.045, ki=0., kd=0.025, mn=-max_steer_angle, mx=max_steer_angle)
 
         # TODO: Subscribe to all the topics you need to
         rospy.Subscriber('/vehicle/dbw_enabled', Bool, self.dbw_cb)
@@ -225,7 +225,7 @@ class DBWNode(object):
         spl = UnivariateSpline(ptsXV, ptsYV)
         # spl = CubicSpline(ptsXV, ptsYV)
         cte = 0
-        for t in range(3):
+        for t in range(5):
             cte += spl(np.mean(np.array(self.past_velocity))*t*self.time_delta)
         return cte
 
