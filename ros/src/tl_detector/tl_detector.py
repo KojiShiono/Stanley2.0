@@ -198,33 +198,33 @@ class TLDetector(object):
 
         #TODO find the closest visible traffic light (if one exists)
         cv2_img = self.bridge.imgmsg_to_cv2(self.camera_image, "passthrough")
-        img_th0 = (cv2_img[:,:,0] > 240)
-        img_th1 = (cv2_img[:,:,1] > 240)
+        img_th_r = (cv2_img[:,:,0] > 240)
+        img_th_g = (cv2_img[:,:,1] > 240)
 
         pixels_r = 0
         pixels_g = 0
 
-        pixels_r = np.sum(img_th0)
-        pixels_g = np.sum(img_th1)
+        pixels_r = np.sum(img_th_r)
+        pixels_g = np.sum(img_th_g)
 
-        if pixels_r > 500 and pixels_g < 500:
+        if pixels_r > 300 and pixels_g < 300:
             # print "RED"
             light = True
             state = TrafficLight.RED
-        elif pixels_r < 500 and pixels_g > 500:
+        elif pixels_r < 300 and pixels_g > 300:
             # print "GREEN"
             light = True
             state = TrafficLight.GREEN
         else:
             light = None
-            # print "UNKNOWN"
+            state = TrafficLight.UNKNOWN
 
-        if light:
+        if light and state != TrafficLight.UNKNOWN:
             # state = self.get_light_state(light)
             print light_wp, pixels_g, pixels_r, state
             return light_wp, state
-        # self.waypoints = None
-        return -1, TrafficLight.UNKNOWN
+
+        return None, TrafficLight.UNKNOWN
 
 if __name__ == '__main__':
     try:

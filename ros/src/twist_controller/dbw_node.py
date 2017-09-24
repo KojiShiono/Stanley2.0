@@ -9,7 +9,7 @@ import math
 import numpy as np
 import tf
 from scipy.interpolate import UnivariateSpline, CubicSpline
-from pid import PID 
+from pid import PID
 
 from styx_msgs.msg import TrafficLightArray, TrafficLight
 
@@ -62,14 +62,14 @@ class DBWNode(object):
 
         # TODO: Create `TwistController` object
         # self.controller = TwistController(<Arguments you wish to provide>)
-        
+
 
         self.current_velocity = 0.
         self.velocity_ref = 10.47
         self.velocity_target = 0.
         self.cruise_control = 0.
         self.accel_limit = accel_limit
-        self.decel_limit = decel_limit 
+        self.decel_limit = decel_limit
         self.past_velocity = []
         self.memory_velocity = 100
 
@@ -99,7 +99,7 @@ class DBWNode(object):
         rospy.Subscriber('/current_velocity', TwistStamped, self.current_vel_cb, queue_size=1)
         rospy.Subscriber('/current_pose', PoseStamped, self.current_pose_cb, queue_size=1)
         rospy.Subscriber('/final_waypoints', Lane, self.final_waypoints_cb)
-        # subscribe to simulator traffic light states 
+        # subscribe to simulator traffic light states
         rospy.Subscriber('/vehicle/traffic_lights', TrafficLightArray, self.traffic_cb)
 
 
@@ -108,7 +108,7 @@ class DBWNode(object):
 
 
     def loop(self):
-        
+
 
         rate = rospy.Rate(20) # 50Hz
         while not rospy.is_shutdown():
@@ -121,7 +121,7 @@ class DBWNode(object):
             #                                                     <any other argument you need>)
             # if <dbw is enabled>:
             #   self.publish(throttle, brake, steer)
-            
+
 
             if self.dbw_enabled:
                 if self.final_waypoints is not None:
@@ -136,7 +136,7 @@ class DBWNode(object):
                     # get cross track error
                     self.cte = self.cross_track_error(self.final_waypoints, self.current_pose)
                     self.steering = self.steering_pid.step(self.cte, self.time_delta)
-                    # check red light                   
+                    # check red light
                     if self.lights is not None and self.current_pose is not None:
                         dists = [self.sign_distance(light.pose.pose.position, self.current_pose.position) for light in self.lights]
                         states = [light.state for light in self.lights]
@@ -156,10 +156,10 @@ class DBWNode(object):
                             # self.velocity_target = max(1 ,max(self.past_velocity) + self.accel_limit * self.time_delta)
                             self.velocity_target = self.velocity_ref
                         else:
-                            self.velocity_target = min(self.velocity_ref, self.current_velocity + self.decel_limit * self.time_delta) 
+                            self.velocity_target = min(self.velocity_ref, self.current_velocity + self.decel_limit * self.time_delta)
                     self.cruise_control = self.velocity_pid.step(self.velocity_target-self.current_velocity, self.time_delta)
-                
-                if self.cruise_control>0:         
+
+                if self.cruise_control>0:
                     self.throttle = self.cruise_control
                     self.brake = 0
                 else:
@@ -173,7 +173,7 @@ class DBWNode(object):
 
             # logstr = str(self.velocity_target-self.current_velocity) + " ,S: " + str(self.steering) + " ,T: " + str(self.throttle) + " ,B: " + str(self.brake)
             # rospy.logwarn(logstr)
-            
+
             self.publish(self.throttle, self.brake, self.steering)
             rate.sleep()
 
@@ -233,14 +233,14 @@ class DBWNode(object):
         self.current_velocity = msg.twist.linear.x
 
     def current_pose_cb(self, msg):
-        self.current_pose = msg.pose 
+        self.current_pose = msg.pose
 
     def final_waypoints_cb(self, msg):
-        self.final_waypoints = msg.waypoints 
+        self.final_waypoints = msg.waypoints
 
     def traffic_cb(self, msg):
         self.lights = msg.lights
-        
+
     def sign_distance(self, point1, point2):
         dx = point1.x - point2.x
         dy = point1.y - point2.y
