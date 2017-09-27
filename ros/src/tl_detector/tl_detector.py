@@ -10,8 +10,11 @@ from light_classification.tl_classifier import TLClassifier
 import tf
 import cv2
 from traffic_light_config import config
+import time
+import math
+import numpy as np
 
-STATE_COUNT_THRESHOLD = 3
+STATE_COUNT_THRESHOLD = 1
 
 class TLDetector(object):
     def __init__(self):
@@ -50,22 +53,18 @@ class TLDetector(object):
 
     def pose_cb(self, msg):
         self.pose = msg
-        
 
     def waypoints_cb(self, waypoints):
         self.waypoints = waypoints
 
     def traffic_cb(self, msg):
         self.lights = msg.lights
-                
 
     def image_cb(self, msg):
         """Identifies red lights in the incoming camera image and publishes the index
             of the waypoint closest to the red light to /traffic_waypoint
-
         Args:
             msg (Image): image from car-mounted camera
-
         """
         self.has_image = True
         self.camera_image = msg
@@ -86,7 +85,7 @@ class TLDetector(object):
             self.last_wp = light_wp
             self.upcoming_red_light_pub.publish(Int32(light_wp))
         else:
-            self.upcoming_red_light_pub.publish(Int32(self.last_wp))
+            self.upcoming_red_light_pub.publish(Int32(-1))
         self.state_count += 1
 
     def get_closest_waypoint(self, pose):
@@ -94,25 +93,38 @@ class TLDetector(object):
             https://en.wikipedia.org/wiki/Closest_pair_of_points_problem
         Args:
             pose (Pose): position to match a waypoint to
-
         Returns:
             int: index of the closest waypoint in self.waypoints
-
         """
         #TODO implement
-        return 0
+        p = (pose.position.x, pose.position.y, pose.position.z)
+
+        min_dist = 1e5
+        closest_wpnt = -1
+
+        for i in range(len(self.waypoints.waypoints)):
+            w = self.waypoints.waypoints[i].pose.pose.position
+            q = (w.x, w.y, w.z)
+            if self.distance(p, q) < min_dist:
+                min_dist = self.distance(p, q)
+                closest_wpnt = i
+
+        return min_dist
+        # return 0
+
+    def distance(self, p, q):
+        return np.sqrt((p[0]-q[0])**2+(p[1]-q[1])**2+(p[2]-q[2])**2)
+
+
 
 
     def project_to_image_plane(self, point_in_world):
         """Project point from 3D world coordinates to 2D camera image location
-
         Args:
             point_in_world (Point): 3D location of a point in the world
-
         Returns:
             x (int): x coordinate of target point in image
             y (int): y coordinate of target point in image
-
         """
 
         fx = config.camera_info.focal_length_x
@@ -142,13 +154,10 @@ class TLDetector(object):
 
     def get_light_state(self, light):
         """Determines the current color of the traffic light
-
         Args:
             light (TrafficLight): light to classify
-
         Returns:
             int: ID of traffic light color (specified in styx_msgs/TrafficLight)
-
         """
         if(not self.has_image):
             self.prev_light_loc = None
@@ -167,24 +176,61 @@ class TLDetector(object):
     def process_traffic_lights(self):
         """Finds closest visible traffic light, if one exists, and determines its
             location and color
-
         Returns:
             int: index of waypoint closes to the upcoming traffic light (-1 if none exists)
             int: ID of traffic light color (specified in styx_msgs/TrafficLight)
-
         """
         light = None
         light_positions = config.light_positions
-        if(self.pose):
-            car_position = self.get_closest_waypoint(self.pose.pose)
+        if self.pose is not None and self.waypoints is not None:
+            light_wp = self.get_closest_waypoint(self.pose.pose)
+
 
         #TODO find the closest visible traffic light (if one exists)
+        dist = -1
+        img = self.bridge.imgmsg_to_cv2(self.camera_image, "passthrough")
+        # cv2_img = cv2.cvtColor(cv2_img, cv2.COLOR_BGR2RGB)
+        
 
-        if light:
-            state = self.get_light_state(light)
-            return light_wp, state
-        self.waypoints = None
-        return -1, TrafficLight.UNKNOWN
+        mask = self.red_select(img)
+        red_pixels = np.sum(mask)
+        if red_pixels > 10:
+            red_pos = np.where(mask==1)
+            red_x = np.mean(red_pos[0])
+
+            if red_x < 350 and red_x > 200:
+                return int(35-(red_x-200)/40), TrafficLight.RED
+            else:
+                return 45, TrafficLight.RED
+
+            
+        else:
+            return -1, TrafficLight.UNKNOWN
+
+
+
+        # dists = [self.sign_distance(light.pose.pose.position, self.pose.pose.position) for light in self.lights]
+        # dist = np.min(dists)
+        # if dist >20 and dist < 40:
+        #     cv2.imwrite("/home/student/Desktop/Stanley2.0/images/"+str(int(dist))+"_"+str(time.time())+".jpg", cv2_img)
+        # else:
+        #     if int(dist)%66 == 0:
+        #         cv2.imwrite("/home/student/Desktop/Stanley2.0/images/"+str(int(dist))+"_"+str(time.time())+".jpg", cv2_img)
+        # cv2.imwrite("/home/student/Desktop/Stanley2.0/images/"+str(time.time())+".jpg", cv2_img)
+
+        
+    def sign_distance(self, point1, point2):
+        dx = point1.x - point2.x
+        dy = point1.y - point2.y
+        d = math.sqrt(dx*dx+dy*dy)
+        return d if dx > 0 else 99999.
+
+    def red_select(self, img):
+        r_channel = img[:,:,0]
+        g_channel = img[:,:,1]
+        binary_output = np.zeros_like(r_channel)
+        binary_output[(r_channel > 200) & (g_channel <= 50)] = 1
+        return binary_output
 
 if __name__ == '__main__':
     try:
