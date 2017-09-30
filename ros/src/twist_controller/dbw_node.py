@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, Int32
 from dbw_mkz_msgs.msg import ThrottleCmd, SteeringCmd, BrakeCmd, SteeringReport
 from geometry_msgs.msg import TwistStamped, PoseStamped
 from styx_msgs.msg import Lane, Waypoint
@@ -87,12 +87,13 @@ class DBWNode(object):
 
         self.lights = None
         self.red_light_dist = 9999.
-        self.red_stop_dist_max = 30 # distance from the red traffic light that the vehicle should stop
+        self.red_stop_dist_max = 35 # distance from the red traffic light that the vehicle should stop
         self.red_stop_dist_min = 25 # distance from the red traffic light that the vehicle should keep going
+        self.light_state = None
 
         self.velocity_pid = PID(kp=0.2, ki=0.0, kd=0.01, mn=-1, mx = 1.)
 
-        self.steering_pid = PID(kp=0.05, ki=0., kd=0.03, mn=-max_steer_angle, mx=max_steer_angle)
+        self.steering_pid = PID(kp=0.045, ki=0., kd=0.025, mn=-max_steer_angle, mx=max_steer_angle)
 
         # TODO: Subscribe to all the topics you need to
         rospy.Subscriber('/vehicle/dbw_enabled', Bool, self.dbw_cb)
@@ -101,15 +102,13 @@ class DBWNode(object):
         rospy.Subscriber('/final_waypoints', Lane, self.final_waypoints_cb)
         # subscribe to simulator traffic light states
         rospy.Subscriber('/vehicle/traffic_lights', TrafficLightArray, self.traffic_cb)
-
+        rospy.Subscriber('/traffic_waypoint', Int32, self.light_state_cb, queue_size=1)
 
         self.loop()
 
 
 
     def loop(self):
-
-
         rate = rospy.Rate(20) # 50Hz
         while not rospy.is_shutdown():
             # TODO: Get predicted throttle, brake, and steering using `twist_controller`
@@ -137,15 +136,22 @@ class DBWNode(object):
                     self.cte = self.cross_track_error(self.final_waypoints, self.current_pose)
                     self.steering = self.steering_pid.step(self.cte, self.time_delta)
                     # check red light
-                    if self.lights is not None and self.current_pose is not None:
-                        dists = [self.sign_distance(light.pose.pose.position, self.current_pose.position) for light in self.lights]
-                        states = [light.state for light in self.lights]
-                        # rospy.logwarn(dists)
-                        # rospy.logwarn(states)
-                        if states[np.argmin(np.array(dists))] == 0:
-                            self.red_light_dist = min(dists)
-                        else:
+                    # if self.lights is not None and self.current_pose is not None:
+                    #     dists = [self.sign_distance(light.pose.pose.position, self.current_pose.position) for light in self.lights]
+                    #     states = [light.state for light in self.lights]
+                    #     # rospy.logwarn(dists)
+                    #     # rospy.logwarn(states)
+                    #     if states[np.argmin(np.array(dists))] == 0:
+                    #         self.red_light_dist = min(dists)
+                    #     else:
+                    #         self.red_light_dist = 9999.
+                    if self.light_state is not None and self.current_pose is not None:
+                        if self.light_state == -1:
                             self.red_light_dist = 9999.
+                        else:
+                            self.red_light_dist = self.light_state.data
+
+
                     # set target velocity
                     # project current distance to stop with full brake
                     project_stop_dist = ((self.current_velocity+0)/2)*(self.current_velocity/abs(self.decel_limit))
@@ -219,7 +225,7 @@ class DBWNode(object):
         spl = UnivariateSpline(ptsXV, ptsYV)
         # spl = CubicSpline(ptsXV, ptsYV)
         cte = 0
-        for t in range(3):
+        for t in range(5):
             cte += spl(np.mean(np.array(self.past_velocity))*t*self.time_delta)
         return cte
 
@@ -240,6 +246,9 @@ class DBWNode(object):
 
     def traffic_cb(self, msg):
         self.lights = msg.lights
+
+    def light_state_cb(self, msg):
+        self.light_state = msg
 
     def sign_distance(self, point1, point2):
         dx = point1.x - point2.x

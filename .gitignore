@@ -10,3 +10,4 @@ traffic_ligth_bag_files/simulator_images
 **/*.pyc
 *.jpeg
 traffic_light_bag_files/simulator_images/lights.csv
+**/yolo.weights

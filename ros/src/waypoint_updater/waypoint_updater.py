@@ -32,10 +32,10 @@ class WaypointUpdater(object):
         rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb)
         rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
 
-        
+
         # rospy.Subscriber('/traffic_waypoint', Lane, self.traffic_waypoints_cb)
         # TODO: Add a subscriber for /traffic_waypoint and /obstacle_waypoint below
-        
+
 
         self.map = False
         self.pose_ = None
@@ -69,17 +69,17 @@ class WaypointUpdater(object):
                     self.current_waypoint_index += 1
                     dist = self.distance(self.pose.position, self.map_points[self.current_waypoint_index])
                     if dist < last_dist:
-                        last_dist = dist 
+                        last_dist = dist
                     else:
                         self.current_waypoint_index -= 1
                         min_dist_found = True
             self.current_waypoint_index %= self.n_map_points
             loop = self.waypoints.waypoints + self.waypoints.waypoints[:LOOKAHEAD_WPS]
             self.lane.waypoints = loop[self.current_waypoint_index-LOOKBACK_WPS : self.current_waypoint_index + LOOKAHEAD_WPS]
-                                
+
 
             self.final_waypoints_pub.publish(self.lane)
-        
+
 
     def waypoints_cb(self, Lane):
         # TODO: Implement
