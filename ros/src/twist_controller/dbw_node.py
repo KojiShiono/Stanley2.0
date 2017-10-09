@@ -8,7 +8,7 @@ from styx_msgs.msg import Lane, Waypoint
 import math
 import numpy as np
 import tf
-from scipy.interpolate import UnivariateSpline, CubicSpline
+from scipy.interpolate import UnivariateSpline #, CubicSpline
 from pid import PID 
 
 from styx_msgs.msg import TrafficLightArray, TrafficLight
