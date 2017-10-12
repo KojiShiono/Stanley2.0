@@ -1,6 +1,13 @@
 # Stanley2.0
 Udacity Self Driving Car Final Project
 
+### Team Members:
+1. Koji Shiono (**Team Lead**) : kshiono@umich.edu  
+2. Alessandro Melis: alessandro_melis@rocketmail.com
+3. Artem Larionov: larionov.artem@gmail.com
+4. Bowen Weng: bxw229@case.edu
+5. Piyush Karande: piyush.karande@wustl.edu
+
 ## 1. Algorithm Summary
 The submitted module consists of three parts, the perception, path planning and control.
 
