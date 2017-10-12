@@ -197,11 +197,11 @@ class TLDetector(object):
         if red_pixels > 10:
             red_pos = np.where(mask==1)
             red_x = np.mean(red_pos[0])
-
-            if red_x < 350 and red_x > 200:
+            # print red_x
+            if red_x < 260 and red_x > 120:
                 return int(35-(red_x-200)/40), TrafficLight.RED
             else:
-                return 45, TrafficLight.RED
+                return -1, TrafficLight.UNKNOWN
 
             
         else:

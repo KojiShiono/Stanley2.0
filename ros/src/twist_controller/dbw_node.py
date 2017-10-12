@@ -8,7 +8,7 @@ from styx_msgs.msg import Lane, Waypoint
 import math
 import numpy as np
 import tf
-from scipy.interpolate import UnivariateSpline #, CubicSpline
+from scipy.interpolate import UnivariateSpline
 from pid import PID 
 
 from styx_msgs.msg import TrafficLightArray, TrafficLight
@@ -65,7 +65,7 @@ class DBWNode(object):
         
 
         self.current_velocity = 0.
-        self.velocity_ref = 10.47
+        self.velocity_ref = 7
         self.velocity_target = 0.
         self.cruise_control = 0.
         self.accel_limit = accel_limit
@@ -93,7 +93,7 @@ class DBWNode(object):
 
         self.velocity_pid = PID(kp=0.2, ki=0.0, kd=0.01, mn=-1, mx = 1.)
 
-        self.steering_pid = PID(kp=0.045, ki=0., kd=0.025, mn=-max_steer_angle, mx=max_steer_angle)
+        self.steering_pid = PID(kp=0.045, ki=0., kd=0.035, mn=-max_steer_angle, mx=max_steer_angle)
 
         # TODO: Subscribe to all the topics you need to
         rospy.Subscriber('/vehicle/dbw_enabled', Bool, self.dbw_cb)
