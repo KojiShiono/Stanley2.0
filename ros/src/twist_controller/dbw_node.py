@@ -65,7 +65,7 @@ class DBWNode(object):
         
 
         self.current_velocity = 0.
-        self.velocity_ref = 5
+        self.velocity_ref = 7
         self.velocity_target = 0.
         self.cruise_control = 0.
         self.accel_limit = accel_limit
