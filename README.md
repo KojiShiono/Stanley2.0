@@ -8,6 +8,15 @@ Udacity Self Driving Car Final Project
 4. Bowen Weng: bxw229@case.edu
 5. Piyush Karande: piyush.karande@wustl.edu
 
+### Video examples
+https://youtu.be/8p-YpxrCijI
+
+https://youtu.be/jWGAe9wpOvs
+
+https://youtu.be/s2fD1IzT5EE
+
+https://youtu.be/yPPAP1gzW78
+
 ## 1. Algorithm Summary
 The submitted module consists of three parts, the perception, path planning and control.
 
